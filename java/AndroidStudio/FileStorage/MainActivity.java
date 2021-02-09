@@ -38,14 +38,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Uri title = Objects.requireNonNull(data.getData());
-//        if (requestCode == 1 && resultCode == RESULT_OK){
-//            try(BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-//                    getContentResolver().openOutputStream(title)))){
-//                writer.write(txtMemo.getText().toString());
-//            }catch (IOException e){
-//                e.printStackTrace();
-//            }
-//       }
+        if (requestCode == 1 && resultCode == RESULT_OK){
+            try(BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+                    getContentResolver().openOutputStream(title)))){
+                writer.write(txtMemo.getText().toString());
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+       }
         if (requestCode == 2 && resultCode == RESULT_OK){
             StringBuilder str = new StringBuilder();
             try(BufferedReader reader = new BufferedReader(new InputStreamReader(
